@@ -368,6 +368,7 @@
     <a href="#hunting"><span class="sev" style="background:var(--med)"></span>Threat Hunting</a>
     <a href="#ir"><span class="sev" style="background:var(--critical)"></span>Incident Response</a>
     <a href="#ninja"><span class="sev" style="background:var(--high)"></span>Ninja Links</a>
+    <a href="#bowser"><span class="sev" style="background:var(--critical)"></span>Bowser</a>
     <a href="#resources"><span class="sev" style="background:var(--good)"></span>Essential Resources</a>
     <a href="#exam"><span class="sev" style="background:var(--info)"></span>Exam Prep</a>
     <a href="#articles"><span class="sev" style="background:var(--high)"></span>CSOC Guide Catalogues</a>
@@ -470,6 +471,47 @@
     </div>
   </section>
 
+  <!-- BOWSER -->
+  <section class="block" id="bowser">
+    <div class="block-head">
+      <h2><span class="h2-sq" style="background:var(--critical)"></span> Bowser — AI Triage Assistant</h2>
+      <div class="tag">Internal L1 Agent · Confidential</div>
+    </div>
+    <div class="block-desc">Bowser is Blackford's in-house, next-generation L1 agent — built by SOC analysts, for SOC analysts. It harmonises governance, process, and analysis during alert triage, drawing on a knowledge base of 150+ internal SOPs and playbooks, and connects to Defender using your own permissions (OAuth / RBAC), so you only ever see what you're entitled to see. Use it to speed up triage, stay aligned to playbooks, and close knowledge gaps.</div>
+
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-id" style="color:var(--critical)">MODULE 01</div>
+        <div class="cert-name">Query Assistant</div>
+        <div class="cert-desc">Builds and parses KQL for you during an investigation — describe what you need to see and refine from there instead of writing queries from scratch.</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-id" style="color:var(--critical)">MODULE 02</div>
+        <div class="cert-name">Governance Fetcher</div>
+        <div class="cert-desc">Answers governance, policy, and process questions with pinpoint accuracy from the internal knowledge base — no more digging through SharePoint mid-incident.</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-id" style="color:var(--critical)">MODULE 03</div>
+        <div class="cert-name">Playbook Tracker</div>
+        <div class="cert-desc">Surfaces the correct playbook for the alert you're working and tracks your progress through it, ensuring complete adherence to pre-defined procedures.</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-id" style="color:var(--critical)">MODULE 04</div>
+        <div class="cert-name">Defender Connector</div>
+        <div class="cert-desc">Pulls incident and entity context directly from Defender XDR, authenticated with your own RBAC-scoped permissions.</div>
+      </div>
+    </div>
+
+    <div class="track-label" style="margin-top:32px;"><span class="sq" style="background:var(--critical)"></span>Using Bowser During Alert Triage</div>
+    <div class="track" style="--track-color:var(--critical)">
+      <div class="track-item"><div class="ti-step">Step 01</div><div class="ti-title">Open the incident in Defender XDR / Sentinel and ask Bowser for the matching playbook.</div></div>
+      <div class="track-item"><div class="ti-step">Step 02</div><div class="ti-title">Use the Governance Fetcher for any process or escalation questions as they arise.</div></div>
+      <div class="track-item"><div class="ti-step">Step 03</div><div class="ti-title">Use the Query Assistant to build the KQL you need to gather evidence and enrich entities.</div></div>
+      <div class="track-item"><div class="ti-step">Step 04</div><div class="ti-title">Work through the playbook with the Playbook Tracker — verify Bowser's outputs with your own analysis before drawing conclusions.</div></div>
+      <div class="track-item"><div class="ti-step">Step 05</div><div class="ti-title">Document findings and disposition per the reporting standards. You own the verdict — Bowser supplements your judgement, it doesn't replace it.</div></div>
+    </div>
+  </section>
+
   <!-- ESSENTIAL RESOURCES -->
   <section class="block" id="resources">
     <div class="block-head">
@@ -478,18 +520,8 @@
     </div>
     <div class="block-desc">These are internal resources that will assist in your initial onboarding.</div>
     <div class="res-list">
-      <a class="res-row" href="https://www.itprofessor.cloud/defender-xdr-incident-investigation-end-to-end/" target="_blank" rel="noopener">
-        <span class="res-idx">01</span>
-        <span class="res-title">Defender XDR Incident Investigation: End-to-End Guide with Sentinel &amp; KQL</span>
-        <span class="res-arrow">→</span>
-      </a>
-      <a class="res-row" href="https://www.itprofessor.cloud/kql-beginners-guide/" target="_blank" rel="noopener">
-        <span class="res-idx">02</span>
-        <span class="res-title">The KQL Playbook (Play #1): A Beginner's Guide to Talking to Your Data</span>
-        <span class="res-arrow">→</span>
-      </a>
       <a class="res-row" href="https://github.com/rod-trent/MustLearnKQL/blob/main/Book_Version/MustLearnKQL_Book.pdf" target="_blank" rel="noopener">
-        <span class="res-idx">03</span>
+        <span class="res-idx">01</span>
         <span class="res-title">MustLearnKQL — Book</span>
         <span class="res-arrow">→</span>
       </a>
