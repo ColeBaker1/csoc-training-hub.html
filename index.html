@@ -307,6 +307,28 @@
     font-family:var(--mono); font-size:11px; color:var(--text-dim); letter-spacing:0.04em;
   }
 
+  /* ---------- Centered layout ---------- */
+  body{text-align:center;}
+  .topbar{justify-content:center; gap:24px;}
+  nav.legend{justify-content:center;}
+  .eyebrow{justify-content:center;}
+  h1, .hero p, .block-desc{margin-left:auto; margin-right:auto;}
+  .hero-stats{margin-left:auto; margin-right:auto;}
+  .block-head{justify-content:center; gap:16px;}
+  .track-label{justify-content:center;}
+  /* Timelines: line runs down the middle, dot centered above each stage */
+  .track{width:fit-content; margin:0 auto; text-align:center; padding-left:0; min-width:280px;}
+  .track::before{left:50%; transform:translateX(-0.5px);}
+  .track-item{padding:18px 0 24px; }
+  .track-item:last-child{padding-bottom:0;}
+  .track-item::before{left:50%; transform:translateX(-50%); top:0; box-shadow:0 0 0 6px var(--bg);}
+  .chip-grid{justify-content:center;}
+  /* Resource rows: cluster number, title, and arrow in the middle */
+  .res-row{justify-content:center;}
+  .res-title{flex:0 1 auto;}
+  .res-idx{width:auto;}
+  footer{justify-content:center; gap:24px;}
+
   ::selection{background:rgba(79,163,227,0.3);}
 
   /* ---------- Reduced motion ---------- */
