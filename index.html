@@ -281,6 +281,13 @@
     transition:border-color .15s;
   }
   .exam-card:hover{border-color:var(--med);}
+  .exam-group-label{
+    font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--text-mute); display:flex; align-items:center; gap:8px;
+    margin:32px 0 14px;
+  }
+  .exam-group-label:first-of-type{margin-top:0;}
+  .exam-group-label .sq{width:9px; height:9px; border-radius:2px;}
   .exam-src{font-family:var(--mono); font-size:10px; color:var(--med); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:8px;}
   .exam-title{font-size:14px; font-weight:600;}
   .exam-title a:hover{color:var(--info);}
@@ -306,28 +313,6 @@
     display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
     font-family:var(--mono); font-size:11px; color:var(--text-dim); letter-spacing:0.04em;
   }
-
-  /* ---------- Centered layout ---------- */
-  body{text-align:center;}
-  .topbar{justify-content:center; gap:24px;}
-  nav.legend{justify-content:center;}
-  .eyebrow{justify-content:center;}
-  h1, .hero p, .block-desc{margin-left:auto; margin-right:auto;}
-  .hero-stats{margin-left:auto; margin-right:auto;}
-  .block-head{justify-content:center; gap:16px;}
-  .track-label{justify-content:center;}
-  /* Timelines: line runs down the middle, dot centered above each stage */
-  .track{width:fit-content; margin:0 auto; text-align:center; padding-left:0; min-width:280px;}
-  .track::before{left:50%; transform:translateX(-0.5px);}
-  .track-item{padding:18px 0 24px; }
-  .track-item:last-child{padding-bottom:0;}
-  .track-item::before{left:50%; transform:translateX(-50%); top:0; box-shadow:0 0 0 6px var(--bg);}
-  .chip-grid{justify-content:center;}
-  /* Resource rows: cluster number, title, and arrow in the middle */
-  .res-row{justify-content:center;}
-  .res-title{flex:0 1 auto;}
-  .res-idx{width:auto;}
-  footer{justify-content:center; gap:24px;}
 
   ::selection{background:rgba(79,163,227,0.3);}
 
@@ -481,10 +466,28 @@
   <!-- EXAM PREP -->
   <section class="block" id="exam">
     <div class="block-head">
-      <h2><span style="color:var(--info)">■</span> Exam Preparation — SC-200</h2>
-      <div class="tag">Mock questions &amp; practice</div>
+      <h2><span style="color:var(--info)">■</span> Exam Preparation</h2>
+      <div class="tag">SC-900 · SC-200 · AZ-500</div>
     </div>
-    <div class="block-desc">Resources providing mock exam questions and questions from previous exams to assist with SC-200 preparation.</div>
+    <div class="block-desc">Official Microsoft courses and practice assessments for each certification, plus mock exam question banks to assist with preparation.</div>
+
+    <div class="exam-group-label"><span class="sq" style="background:var(--info)"></span>SC-900 — Security Fundamentals</div>
+    <div class="exam-grid">
+      <div class="exam-card">
+        <div class="exam-src">Microsoft Learn</div>
+        <div class="exam-title">
+          <a href="https://learn.microsoft.com/en-us/training/courses/sc-900t00" target="_blank" rel="noopener">SC-900 Official Course</a>
+        </div>
+      </div>
+      <div class="exam-card">
+        <div class="exam-src">Microsoft Learn</div>
+        <div class="exam-title">
+          <a href="https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/?practice-assessment-type=certification" target="_blank" rel="noopener">SC-900 Official Practice Assessment</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-group-label"><span class="sq" style="background:var(--med)"></span>SC-200 — Security Operations Analyst</div>
     <div class="exam-grid">
       <div class="exam-card">
         <div class="exam-src">Microsoft Learn</div>
@@ -508,6 +511,22 @@
         <div class="exam-src">Cloud Study Community</div>
         <div class="exam-title">
           <a href="#">SC-200: 200+ Predicted Practice Questions with Detailed Explanations (eBook)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="exam-group-label"><span class="sq" style="background:var(--high)"></span>AZ-500 — Azure Security Engineer</div>
+    <div class="exam-grid">
+      <div class="exam-card">
+        <div class="exam-src">Microsoft Learn</div>
+        <div class="exam-title">
+          <a href="https://learn.microsoft.com/en-us/training/courses/az-500t00" target="_blank" rel="noopener">AZ-500 Official Course</a>
+        </div>
+      </div>
+      <div class="exam-card">
+        <div class="exam-src">Microsoft Learn</div>
+        <div class="exam-title">
+          <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/?practice-assessment-type=certification" target="_blank" rel="noopener">AZ-500 Official Practice Assessment</a>
         </div>
       </div>
     </div>
