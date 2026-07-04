@@ -38,32 +38,6 @@
   a{color:inherit; text-decoration:none;}
   a:focus-visible{outline:2px solid var(--info); outline-offset:2px; border-radius:3px;}
 
-  /* ---------- Ticker ---------- */
-  .ticker-bar{
-    background:#050809;
-    border-bottom:1px solid var(--border-soft);
-    overflow:hidden;
-    white-space:nowrap;
-    height:30px;
-    display:flex;
-    align-items:center;
-    position:relative;
-  }
-  .ticker-track{
-    display:inline-flex;
-    animation:scroll 38s linear infinite;
-    font-family:var(--mono);
-    font-size:11px;
-    letter-spacing:0.06em;
-    color:var(--text-dim);
-  }
-  .ticker-track span{padding:0 28px; display:inline-flex; align-items:center; gap:8px; white-space:nowrap;}
-  .dot{width:6px; height:6px; border-radius:50%; display:inline-block;}
-  @keyframes scroll{
-    0%{transform:translateX(0);}
-    100%{transform:translateX(-50%);}
-  }
-
   /* ---------- Top bar ---------- */
   .topbar{
     display:flex;
@@ -340,17 +314,12 @@
   /* ---------- Reduced motion ---------- */
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
-    .ticker-track{animation:none;}
     .pulse{animation:none;}
     .cert-card:hover, .article-card:hover{transform:none;}
   }
 </style>
 </head>
 <body>
-
-  <div class="ticker-bar" aria-hidden="true">
-    <div class="ticker-track" id="tickerTrack"></div>
-  </div>
 
   <div class="topbar">
     <div class="brand"><span class="pulse"></span> Blackford CSOC <b>// TRAINING HUB</b></div>
@@ -477,7 +446,7 @@
         <span class="res-title">Defender XDR Incident Investigation: End-to-End Guide with Sentinel &amp; KQL</span>
         <span class="res-arrow">→</span>
       </a>
-      <a class="res-row" href="#">
+      <a class="res-row" href="https://www.itprofessor.cloud/kql-beginners-guide/" target="_blank" rel="noopener">
         <span class="res-idx">02</span>
         <span class="res-title">The KQL Playbook (Play #1): A Beginner's Guide to Talking to Your Data</span>
         <span class="res-arrow">→</span>
@@ -533,25 +502,25 @@
     </div>
     <div class="block-desc">Microsoft Defender Suite, Sentinel KQL, and detection engineering reading list.</div>
     <div class="article-grid">
-      <a class="article-card" href="#">Microsoft Teams Threat Hunting: SOC Detection &amp; Response Guide</a>
-      <a class="article-card" href="#">So You've Deployed Sentinel. Now What? A Guide to Data Connectors</a>
-      <a class="article-card" href="#">Microsoft Sentinel User Audit Workbook (JSON Included)</a>
-      <a class="article-card" href="#">Detection Engineering and Why It's a Must Have — Part 2</a>
-      <a class="article-card" href="#">Sentinel TI: One-Click IOC Add with a Logic App</a>
-      <a class="article-card" href="#">Microsoft Sentinel Workspace Manager: A Deep Dive Guide</a>
-      <a class="article-card" href="#">How to Bulk Close Sentinel Incidents (PowerShell Script)</a>
-      <a class="article-card" href="#">Stop Sentinel Alert Noise: A Practical Rule Tuning Guide</a>
-      <a class="article-card" href="#">Hunting in Microsoft Sentinel: Beginner Guide</a>
-      <a class="article-card" href="#">KQL Insider Threat Queries: Detect Data Theft &amp; Sabotage</a>
-      <a class="article-card" href="#">Detection Engineering: Why Your SIEM Won't Save You</a>
-      <a class="article-card" href="#">How to Bulk Enable All Sentinel Analytic Rules (PowerShell Script)</a>
-      <a class="article-card" href="#">Threat Analytics in Microsoft Defender: Complete Guide</a>
-      <a class="article-card" href="#">Conditional Access Health Check with KQL</a>
-      <a class="article-card" href="#">Defender for Identity: Is It Actually Worth Your Time?</a>
-      <a class="article-card" href="#">Defender for Office 365 Policy Configuration Guide</a>
-      <a class="article-card" href="#">Data Connectors in Sentinel: What Actually Matters</a>
-      <a class="article-card" href="#">Hunting PowerShell Abuse in MDE: 8 KQL Queries + Results</a>
-      <a class="article-card" href="#">Defender XDR Incident Investigation: End-to-End Guide with Sentinel &amp; KQL</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/microsoft-teams-threat-hunting-guide-soc-response/" target="_blank" rel="noopener">Microsoft Teams Threat Hunting: SOC Detection &amp; Response Guide</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-data-connectors-guide/" target="_blank" rel="noopener">So You've Deployed Sentinel. Now What? A Guide to Data Connectors</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-user-audit-investigation-workbook/" target="_blank" rel="noopener">Microsoft Sentinel User Audit Workbook (JSON Included)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/detection-engineering-why-its-a-must-have-part-2/" target="_blank" rel="noopener">Detection Engineering and Why It's a Must Have — Part 2</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-threat-intel-logic-app-ioc/" target="_blank" rel="noopener">Sentinel TI: One-Click IOC Add with a Logic App</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-workspace-manager-guide/" target="_blank" rel="noopener">Microsoft Sentinel Workspace Manager: A Deep Dive Guide</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-bulk-close-incidents-script/" target="_blank" rel="noopener">How to Bulk Close Sentinel Incidents (PowerShell Script)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-rule-tuning-guide/" target="_blank" rel="noopener">Stop Sentinel Alert Noise: A Practical Rule Tuning Guide</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/hunting-microsoft-sentinel/" target="_blank" rel="noopener">Hunting in Microsoft Sentinel: Beginner Guide</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/kql-user-audit-playbook-part-2/" target="_blank" rel="noopener">KQL Insider Threat Queries: Detect Data Theft &amp; Sabotage</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/detection-engineering-why-your-siem-wont-save-you/" target="_blank" rel="noopener">Detection Engineering: Why Your SIEM Won't Save You</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-bulk-enable-analytic-rules/" target="_blank" rel="noopener">How to Bulk Enable All Sentinel Analytic Rules (PowerShell Script)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/threat-analytics-microsoft-defender/" target="_blank" rel="noopener">Threat Analytics in Microsoft Defender: Complete Guide</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/conditional-access-policy-health-check-kql/" target="_blank" rel="noopener">Conditional Access Health Check with KQL</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-for-identity-worth-it/" target="_blank" rel="noopener">Defender for Identity: Is It Actually Worth Your Time?</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-office-365-configuration-guide/" target="_blank" rel="noopener">Defender for Office 365 Policy Configuration Guide</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-data-connectors-what-actually-matters/" target="_blank" rel="noopener">Data Connectors in Sentinel: What Actually Matters</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/hunting-powershell-abuse-mde-kql/" target="_blank" rel="noopener">Hunting PowerShell Abuse in MDE: 8 KQL Queries + Results</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-xdr-incident-investigation-end-to-end/" target="_blank" rel="noopener">Defender XDR Incident Investigation: End-to-End Guide with Sentinel &amp; KQL</a>
     </div>
   </section>
 
@@ -561,18 +530,6 @@
   </footer>
 
 <script>
-  // Ticker content: [text, dot colour]
-  const tickerItems = [
-    ['24/7/365 MONITORING: DEFENDER XDR + SENTINEL', 'var(--good)'],
-    ['ANALYST TRAINING: L1 / L2 / L3 TRACKS LIVE', 'var(--info)'],
-    ['CERTIFICATION PATH: SC-900 → SC-200 → AZ-500', 'var(--med)'],
-    ['SC-200 PRACTICE EXAMS 2026 NOW AVAILABLE', 'var(--high)'],
-  ];
-  const track = document.getElementById('tickerTrack');
-  const build = () => tickerItems.map(([t, c]) =>
-    `<span><span class="dot" style="background:${c}"></span>${t}</span>`).join('');
-  track.innerHTML = build() + build(); // duplicated so the loop is seamless
-
   // Clock — GST / UAE time (UTC+4)
   const clockEl = document.getElementById('clock');
   const pad = n => String(n).padStart(2, '0');
