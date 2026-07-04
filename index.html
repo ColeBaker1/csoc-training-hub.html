@@ -615,19 +615,28 @@ function updateClock() {
     document.getElementById('clock').textContent = `${gstTime} GST`;
 }
 
-updateClock();
-setInterval(updateClock, 1000);
+// GST / UAE Time (UTC+4)
+function updateClock() {
+    const now = new Date();
 
-  // Tracker tabs
-  document.querySelectorAll('.tab-btn').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-      document.querySelectorAll('.tracker-panel').forEach(p=>p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
-    });
-  });
-</script>
+    const options = {
+        timeZone: 'Asia/Dubai',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    };
+
+    const gstTime = now.toLocaleTimeString('en-GB', options);
+
+    const clock = document.getElementById('clock');
+    if (clock) {
+        clock.textContent = gstTime + ' GST';
+    }
+}
+
+updateClock();
+setInterval(updateClock, 1000);>
 
 </body>
 </html>
