@@ -97,8 +97,9 @@
     font-family:var(--mono);
     font-size:11px;
     letter-spacing:0.05em;
-    padding:6px 12px;
-    border-radius:3px;
+    padding:0 12px;
+    height:30px;
+    border-radius:4px;
     border:1px solid var(--border);
     color:var(--text-mute);
     display:flex;
@@ -157,6 +158,7 @@
     padding:14px 22px;
     border-right:1px solid var(--border);
     font-family:var(--mono);
+    min-width:150px;
   }
   .hero-stats div:last-child{border-right:none;}
   .hero-stats .n{font-size:20px; font-weight:600; color:var(--text);}
@@ -171,11 +173,19 @@
   }
   .block-head{
     display:flex;
-    align-items:baseline;
+    align-items:center;
     justify-content:space-between;
     margin-bottom:28px;
+    padding-bottom:16px;
+    border-bottom:1px solid var(--border-soft);
     flex-wrap:wrap;
     gap:10px;
+  }
+  .h2-sq{
+    width:10px; height:10px;
+    border-radius:2px;
+    display:inline-block;
+    flex-shrink:0;
   }
   .block-head h2{
     font-size:22px;
@@ -192,7 +202,7 @@
     text-transform:uppercase;
     color:var(--text-dim);
   }
-  .block-desc{color:var(--text-mute); font-size:14px; max-width:640px; margin-bottom:28px;}
+  .block-desc{color:var(--text-mute); font-size:14px; max-width:680px; margin-bottom:28px;}
 
   /* ---------- Cert cards ---------- */
   .cert-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;}
@@ -202,10 +212,13 @@
     border-radius:8px;
     padding:20px;
     transition:border-color .15s, transform .15s;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
   }
   .cert-card:hover{border-color:var(--info); transform:translateY(-2px);}
-  .cert-id{font-family:var(--mono); font-size:12px; color:var(--info); letter-spacing:0.05em; margin-bottom:10px;}
-  .cert-name{font-weight:600; font-size:15px; margin-bottom:8px;}
+  .cert-id{font-family:var(--mono); font-size:12px; color:var(--info); letter-spacing:0.05em;}
+  .cert-name{font-weight:600; font-size:15px;}
   .cert-name a:hover{color:var(--info);}
   .cert-desc{font-size:13px; color:var(--text-mute);}
 
@@ -242,7 +255,7 @@
     font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
     margin-bottom:18px; display:flex; align-items:center; gap:8px; color:var(--text-mute);
   }
-  .track-label .sq{width:9px;height:9px;border-radius:2px;}
+  .track-label .sq{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
 
   /* ---------- Ninja chips ---------- */
   .chip-grid{display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-start;}
@@ -283,6 +296,9 @@
     padding:18px;
     background:var(--bg-panel);
     transition:border-color .15s;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
   }
   .exam-card:hover{border-color:var(--med);}
   .exam-group-label{
@@ -291,17 +307,19 @@
     margin:32px 0 14px;
   }
   .exam-group-label:first-of-type{margin-top:0;}
-  .exam-group-label .sq{width:9px; height:9px; border-radius:2px;}
-  .exam-src{font-family:var(--mono); font-size:10px; color:var(--med); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:8px;}
+  .exam-group-label .sq{width:10px; height:10px; border-radius:2px; flex-shrink:0;}
+  .exam-src{font-family:var(--mono); font-size:10px; color:var(--med); letter-spacing:0.06em; text-transform:uppercase;}
   .exam-title{font-size:14px; font-weight:600;}
   .exam-title a:hover{color:var(--info);}
 
   /* ---------- Deep dive articles ---------- */
-  .article-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px;}
+  .article-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px;}
   .article-card{
     border:1px solid var(--border);
     border-radius:8px;
-    padding:16px 18px;
+    padding:18px;
+    display:flex;
+    align-items:center;
     background:var(--bg-panel);
     font-size:13.5px;
     font-weight:500;
@@ -361,7 +379,7 @@
   <!-- MICROSOFT TRAINING -->
   <section class="block" id="microsoft">
     <div class="block-head">
-      <h2><span style="color:var(--info)">■</span> Microsoft Training Content</h2>
+      <h2><span class="h2-sq" style="background:var(--info)"></span> Microsoft Training Content</h2>
       <div class="tag">Certification Track</div>
     </div>
     <div class="cert-grid">
@@ -392,7 +410,7 @@
   <!-- THREAT HUNTING & IR TRACKS -->
   <section class="block" id="hunting">
     <div class="block-head">
-      <h2><span style="color:var(--med)">■</span> Training Paths</h2>
+      <h2><span class="h2-sq" style="background:var(--med)"></span> Training Paths</h2>
       <div class="tag">Sequential — follow in order</div>
     </div>
     <div class="block-desc">Threat Hunting and Incident Response run as parallel, identically-structured learning paths. Each stage builds on the one before it.</div>
@@ -427,7 +445,7 @@
   <!-- NINJA TRAINING -->
   <section class="block" id="ninja">
     <div class="block-head">
-      <h2><span style="color:var(--high)">■</span> Ninja Training Quick Links</h2>
+      <h2><span class="h2-sq" style="background:var(--high)"></span> Ninja Training Quick Links</h2>
       <div class="tag">Specialised modules</div>
     </div>
     <div class="chip-grid">
@@ -445,7 +463,7 @@
   <!-- ESSENTIAL RESOURCES -->
   <section class="block" id="resources">
     <div class="block-head">
-      <h2><span style="color:var(--good)">■</span> Essential Internal Resources</h2>
+      <h2><span class="h2-sq" style="background:var(--good)"></span> Essential Internal Resources</h2>
       <div class="tag">Onboarding</div>
     </div>
     <div class="block-desc">These are internal resources that will assist in your initial onboarding.</div>
@@ -471,7 +489,7 @@
   <!-- EXAM PREP -->
   <section class="block" id="exam">
     <div class="block-head">
-      <h2><span style="color:var(--info)">■</span> Exam Preparation</h2>
+      <h2><span class="h2-sq" style="background:var(--info)"></span> Exam Preparation</h2>
       <div class="tag">SC-900 · SC-200 · AZ-500</div>
     </div>
     <div class="block-desc">Official Microsoft courses and practice assessments for each certification, plus mock exam question banks to assist with preparation.</div>
@@ -540,7 +558,7 @@
   <!-- DEEP DIVES -->
   <section class="block" id="articles" style="border-bottom:none;">
     <div class="block-head">
-      <h2><span style="color:var(--high)">■</span> Deep Dives &amp; Detection Engineering</h2>
+      <h2><span class="h2-sq" style="background:var(--high)"></span> Deep Dives &amp; Detection Engineering</h2>
       <div class="tag">Defender · Sentinel · KQL · Logic Apps · Automation</div>
     </div>
     <div class="block-desc">Microsoft Defender Suite, Sentinel KQL, detection engineering, and Logic Apps &amp; automation reading list.</div>
