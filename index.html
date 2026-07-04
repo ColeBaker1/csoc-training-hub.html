@@ -318,7 +318,6 @@
     border:1px solid var(--border);
     border-radius:8px;
     padding:18px;
-    display:flex;
     align-items:center;
     background:var(--bg-panel);
     font-size:13.5px;
@@ -328,6 +327,16 @@
     display:block;
   }
   .article-card:hover{border-color:var(--critical); transform:translateY(-2px); color:var(--text);}
+
+  /* Topic group labels within the library */
+  .lib-group-label{
+    font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--text-mute); display:flex; align-items:center; gap:8px;
+    margin:36px 0 14px;
+  }
+  .lib-group-label:first-of-type{margin-top:0;}
+  .lib-group-label .sq{width:10px; height:10px; border-radius:2px; flex-shrink:0;}
+  .lib-group-label .count{color:var(--text-dim); margin-left:auto;}
 
   /* ---------- Footer ---------- */
   footer{
@@ -361,7 +370,7 @@
     <a href="#ninja"><span class="sev" style="background:var(--high)"></span>Ninja Links</a>
     <a href="#resources"><span class="sev" style="background:var(--good)"></span>Essential Resources</a>
     <a href="#exam"><span class="sev" style="background:var(--info)"></span>Exam Prep</a>
-    <a href="#articles"><span class="sev" style="background:var(--high)"></span>Deep Dives</a>
+    <a href="#articles"><span class="sev" style="background:var(--high)"></span>CSOC Training Catalogue</a>
   </nav>
 
   <div class="hero">
@@ -372,7 +381,7 @@
       <div><div class="n">3</div><div class="l">Analyst levels</div></div>
       <div><div class="n">3</div><div class="l">MS certifications</div></div>
       <div><div class="n">14</div><div class="l">Training modules</div></div>
-      <div><div class="n">19</div><div class="l">Deep dive articles</div></div>
+      <div><div class="n">67</div><div class="l">Library articles</div></div>
     </div>
   </div>
 
@@ -555,34 +564,126 @@
     </div>
   </section>
 
-  <!-- DEEP DIVES -->
+  <!-- IT PROFESSOR LIBRARY -->
   <section class="block" id="articles" style="border-bottom:none;">
     <div class="block-head">
-      <h2><span class="h2-sq" style="background:var(--high)"></span> Deep Dives &amp; Detection Engineering</h2>
-      <div class="tag">Defender · Sentinel · KQL · Logic Apps · Automation</div>
+      <h2><span class="h2-sq" style="background:var(--high)"></span> CSOC Training Catalogue</h2>
+      <div class="tag">By topic</div>
     </div>
-    <div class="block-desc">Microsoft Defender Suite, Sentinel KQL, detection engineering, and Logic Apps &amp; automation reading list.</div>
+    <div class="block-desc">The CSOC training catalogue — Sentinel, Defender XDR, KQL, detection engineering, automation, and SOC operations — organised by topic. Beginner topics first, then hunting, response, and engineering.</div>
+
+    <!-- 01 GETTING STARTED -->
+    <div class="lib-group-label"><span class="sq" style="background:var(--good)"></span>01 · Getting Started — Sentinel Foundations</div>
     <div class="article-grid">
-      <a class="article-card" href="https://www.itprofessor.cloud/microsoft-teams-threat-hunting-guide-soc-response/" target="_blank" rel="noopener">Microsoft Teams Threat Hunting: SOC Detection &amp; Response Guide</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/how-to-create-microsoft-sentinel/" target="_blank" rel="noopener">How to Create Microsoft Sentinel</a>
       <a class="article-card" href="https://www.itprofessor.cloud/sentinel-data-connectors-guide/" target="_blank" rel="noopener">So You've Deployed Sentinel. Now What? A Guide to Data Connectors</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-user-audit-investigation-workbook/" target="_blank" rel="noopener">Microsoft Sentinel User Audit Workbook (JSON Included)</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/detection-engineering-why-its-a-must-have-part-2/" target="_blank" rel="noopener">Detection Engineering and Why It's a Must Have — Part 2</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-threat-intel-logic-app-ioc/" target="_blank" rel="noopener">Sentinel TI: One-Click IOC Add with a Logic App</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-workspace-manager-guide/" target="_blank" rel="noopener">Microsoft Sentinel Workspace Manager: A Deep Dive Guide</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-bulk-close-incidents-script/" target="_blank" rel="noopener">How to Bulk Close Sentinel Incidents (PowerShell Script)</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-rule-tuning-guide/" target="_blank" rel="noopener">Stop Sentinel Alert Noise: A Practical Rule Tuning Guide</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/hunting-microsoft-sentinel/" target="_blank" rel="noopener">Hunting in Microsoft Sentinel: Beginner Guide</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/kql-user-audit-playbook-part-2/" target="_blank" rel="noopener">KQL Insider Threat Queries: Detect Data Theft &amp; Sabotage</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/detection-engineering-why-your-siem-wont-save-you/" target="_blank" rel="noopener">Detection Engineering: Why Your SIEM Won't Save You</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-bulk-enable-analytic-rules/" target="_blank" rel="noopener">How to Bulk Enable All Sentinel Analytic Rules (PowerShell Script)</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/threat-analytics-microsoft-defender/" target="_blank" rel="noopener">Threat Analytics in Microsoft Defender: Complete Guide</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/conditional-access-policy-health-check-kql/" target="_blank" rel="noopener">Conditional Access Health Check with KQL</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/defender-for-identity-worth-it/" target="_blank" rel="noopener">Defender for Identity: Is It Actually Worth Your Time?</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/defender-office-365-configuration-guide/" target="_blank" rel="noopener">Defender for Office 365 Policy Configuration Guide</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-data-connectors-what-actually-matters/" target="_blank" rel="noopener">Data Connectors in Sentinel: What Actually Matters</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/hunting-powershell-abuse-mde-kql/" target="_blank" rel="noopener">Hunting PowerShell Abuse in MDE: 8 KQL Queries + Results</a>
-      <a class="article-card" href="https://www.itprofessor.cloud/defender-xdr-incident-investigation-end-to-end/" target="_blank" rel="noopener">Defender XDR Incident Investigation: End-to-End Guide with Sentinel &amp; KQL</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-analytic-rule-guide/" target="_blank" rel="noopener">From Logs to Alerts: Creating Your First Analytic Rule</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-watchlist-guide/" target="_blank" rel="noopener">Sentinel's Secret Weapon: Your First Watchlist</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-defender-xdr-maintenance-post-deployment/" target="_blank" rel="noopener">Post-Deployment Sentinel &amp; Defender XDR: You're Not Done Yet</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/day-in-the-life-soc-analyst/" target="_blank" rel="noopener">A Day in the Life of a SOC Analyst</a>
     </div>
+
+    <!-- 02 KQL -->
+    <div class="lib-group-label"><span class="sq" style="background:var(--info)"></span>02 · KQL — The Playbook Series &amp; Query Skills</div>
+    <div class="article-grid">
+      <a class="article-card" href="https://www.itprofessor.cloud/kql-beginners-guide/" target="_blank" rel="noopener">The KQL Playbook (Play #1): A Beginner's Guide to Talking to Your Data</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/kql-mastering-comparisons/" target="_blank" rel="noopener">The KQL Playbook (Play #2): Mastering the Matching Game</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/kql-taming-messy-data/" target="_blank" rel="noopener">The KQL Playbook (Play #3): Mastering Strings, Timestamps, and Ugly JSON</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/kql-playbook-join-correlation/" target="_blank" rel="noopener">The KQL Playbook (Play #4): The Correlation Play — Joining Tables &amp; Enriching Data</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/kql-playbook-anomaly-hunting/" target="_blank" rel="noopener">The KQL Playbook (Play #5): The Anomaly Play — Finding the 'Weird'</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/kql-user-audit-playbook/" target="_blank" rel="noopener">The KQL User Audit Playbook: Your Template for Investigations</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/kql-user-audit-playbook-part-2/" target="_blank" rel="noopener">KQL User Audit Playbook V2: The Insider Threat Investigation Guide</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/kql-enrichment-sentinel-resource-deployment/" target="_blank" rel="noopener">Why KQL Enrichment Actually Works (And Why Your Alerts Are Better With It)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/kql-visualization-charts-real-world/" target="_blank" rel="noopener">Beauty of Data Visualization in Microsoft Sentinel Using KQL</a>
+    </div>
+
+    <!-- 03 THREAT HUNTING -->
+    <div class="lib-group-label"><span class="sq" style="background:var(--med)"></span>03 · Threat Hunting</div>
+    <div class="article-grid">
+      <a class="article-card" href="https://www.itprofessor.cloud/hunting-microsoft-sentinel/" target="_blank" rel="noopener">Hunting in Microsoft Sentinel: What Hunting Actually Is and Why You Need It</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/building-your-first-threat-hunting-hypothesis-the-mitre-way/" target="_blank" rel="noopener">Building Your First Threat Hunting Hypothesis (The MITRE Way)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/advanced-hunting-take-action-defender-xdr/" target="_blank" rel="noopener">Advanced Hunting Just Got More Powerful: Act on What You Find (Defender XDR)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/hunting-powershell-abuse-mde-kql/" target="_blank" rel="noopener">Hunting PowerShell Abuse in MDE: Eight Queries, Real Results</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/azure-key-vault-threat-hunting-kql/" target="_blank" rel="noopener">Azure Key Vault: The High-Value Queries Your SOC Isn't Running</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-storage-account-ransomware-hunting/" target="_blank" rel="noopener">Hunting Ransomware in Storage Accounts (When You Can't Afford Defender)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/microsoft-teams-threat-hunting-guide-soc-response/" target="_blank" rel="noopener">Teams Threat Protection: What Actually Changed and What You Can Hunt</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-data-lake-guide/" target="_blank" rel="noopener">Sentinel's Endgame Gear: Sentinel Data Lake</a>
+    </div>
+
+    <!-- 04 INCIDENT RESPONSE -->
+    <div class="lib-group-label"><span class="sq" style="background:var(--critical)"></span>04 · Incident Response &amp; Investigation</div>
+    <div class="article-grid">
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-incident-investigation-guide/" target="_blank" rel="noopener">An Incident Just Fired. Now What? (A Beginner's Guide to Investigation)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-xdr-incident-investigation-end-to-end/" target="_blank" rel="noopener">Defender XDR Incident Investigation: A to Z Using a Real Example</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/microsoft-threat-intelligence-sentinel-guide/" target="_blank" rel="noopener">Microsoft Threat Intelligence: Giving Your Sentinel a Brain</a>
+    </div>
+
+    <!-- 05 DETECTION ENGINEERING -->
+    <div class="lib-group-label"><span class="sq" style="background:var(--high)"></span>05 · Detection Engineering &amp; Analytic Rules</div>
+    <div class="article-grid">
+      <a class="article-card" href="https://www.itprofessor.cloud/detection-engineering-why-your-siem-wont-save-you/" target="_blank" rel="noopener">Detection Engineering and Why It's a Must Have (Part 1)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/detection-engineering-why-its-a-must-have-part-2/" target="_blank" rel="noopener">Detection Engineering and Why It's a Must Have (Part 2)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-detection-maturity-guide/" target="_blank" rel="noopener">Your Sentinel Detection Setup Is Probably Broken. Here's How to Know.</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-xdr-custom-detection-rules-guide/" target="_blank" rel="noopener">Beyond the Basics: Forging Your Own Custom Detections in Defender XDR</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/building-brute-force-kql-methodology/" target="_blank" rel="noopener">Building a Brute Force Detection Query: Thinking Through Network Logon Failures</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/tuning-azure-portal-brute-force-detection/" target="_blank" rel="noopener">Fixing Microsoft's Azure Brute Force Detection: Why the Template Fires Constantly</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/fixing-account-created-and-deleted-short-timeframe-rule/" target="_blank" rel="noopener">Fixing the "Account Created and Deleted in Short Timeframe" Analytic Rule</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-rule-tuning-guide/" target="_blank" rel="noopener">Sentinel Rule Tuning: Kick the Noise, Keep the Signal</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/pim-auditing-in-microsoft-sentinel-high-value-detections/" target="_blank" rel="noopener">PIM Auditing in Microsoft Sentinel: High Value Detections</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/conditional-access-policy-health-check-kql/" target="_blank" rel="noopener">Conditional Access Health Check: What Your Policies Actually Do</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/microsoft-sentinel-ueba/" target="_blank" rel="noopener">UEBA in Microsoft Sentinel: Stop Wasting Time on Behavioral Analytics</a>
+    </div>
+
+    <!-- 06 DEFENDER SUITE -->
+    <div class="lib-group-label"><span class="sq" style="background:var(--info)"></span>06 · Microsoft Defender Suite — XDR, Office 365, Identity, Cloud Apps &amp; Cloud</div>
+    <div class="article-grid">
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-xdr-advanced-features-you-never-enabled/" target="_blank" rel="noopener">You're Paying for Defender XDR Features You Never Enabled</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/critical-asset-management-defender-xdr/" target="_blank" rel="noopener">Your Crown Jewels Are in Defender. You Just Never Set Them Up. (Critical Asset Management)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/threat-analytics-microsoft-defender/" target="_blank" rel="noopener">Threat Analytics in Microsoft Defender: What It Does and Why Your SOC Needs It</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-office-365-configuration-guide/" target="_blank" rel="noopener">Defender for Office 365 Policy Configuration: Anti-Phishing, Anti-Spam, Malware, Safe Links</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-for-identity-worth-it/" target="_blank" rel="noopener">Defender for Identity: What's The Point? (And Is It Worth Your Time)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-for-cloud-apps-shadow-it-guide/" target="_blank" rel="noopener">A SOC Analyst's Introduction to Defender for Cloud Apps (Shadow IT)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-for-cloud-apps-policy-management-deep-dive/" target="_blank" rel="noopener">Mastering Policies in Defender for Cloud Apps: A Deep Dive for the SOC Trenches</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-for-cloud-apps-app-governance-oauth-security/" target="_blank" rel="noopener">App Governance in Defender for Cloud Apps: Your OAuth App Security Command Centre</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/why-you-need-microsoft-defender-for-cloud/" target="_blank" rel="noopener">Why You Actually Need Microsoft Defender for Cloud (And What It Does)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-for-cloud-onboarding-azure-aws-gcp-arc/" target="_blank" rel="noopener">Connecting Your Environment to Defender for Cloud: Azure, AWS, GCP &amp; On-Premises</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/defender-for-cloud-continuous-export-log-analytics/" target="_blank" rel="noopener">Continuous Export to Log Analytics: Getting Defender for Cloud Data Where You Need It</a>
+    </div>
+
+    <!-- 07 AUTOMATION -->
+    <div class="lib-group-label"><span class="sq" style="background:var(--good)"></span>07 · Automation, Logic Apps &amp; SOAR</div>
+    <div class="article-grid">
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-teams-triage-playbook/" target="_blank" rel="noopener">Let the Robots Do the Work: Your First Automation Playbook</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-incident-email-alerts-free-logic-app-with-arm-template/" target="_blank" rel="noopener">Sentinel Incident Email Alerts: Free Logic App with ARM Template</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/the-nag-machine-a-logic-app-that-badgers-your-team-about-unowned-sentinel-incidents/" target="_blank" rel="noopener">The Nag Machine: A Logic App That Badgers Your Team About Unowned Incidents</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-threat-intel-logic-app-ioc/" target="_blank" rel="noopener">One-Click Threat Intel: Add IOCs from Sentinel Incidents with a Logic App</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-automated-watchlist-logic-app/" target="_blank" rel="noopener">The Self-Updating Watchlist: Automating Sentinel with Logic Apps &amp; Graph API</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-bulk-enable-analytic-rules/" target="_blank" rel="noopener">How to Bulk Enable All Sentinel Analytic Rules (The Easy Way)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-bulk-close-incidents-script/" target="_blank" rel="noopener">How to Nuke a Noisy Incident Queue (Bulk Close Script)</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-workspace-manager-guide/" target="_blank" rel="noopener">Herding Cats with Sentinel: An In-Depth Guide to Workspace Manager</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-workspace-purge-guide/" target="_blank" rel="noopener">The "Undo" Button for Sentinel Logs: An In-Depth Guide to Purging Data</a>
+    </div>
+
+    <!-- 08 WORKBOOKS -->
+    <div class="lib-group-label"><span class="sq" style="background:var(--med)"></span>08 · Workbooks &amp; Dashboards</div>
+    <div class="article-grid">
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-workbook-deployment-customisation/" target="_blank" rel="noopener">Sentinel Workbooks: Deploy and Customise Your First Dashboard</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-workbooks-three-essential/" target="_blank" rel="noopener">Three Essential Sentinel Workbooks You Should Deploy Right Now</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-user-audit-investigation-workbook/" target="_blank" rel="noopener">User Audit Investigation Workbook: Deploy in Minutes, Investigate in Seconds</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/diagnostic-settings-manager-workbook/" target="_blank" rel="noopener">Diagnostic Settings Manager Workbook</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/azure-forsaken-resources-workbook/" target="_blank" rel="noopener">Why Abandoned Resources Are a Security Problem, Not Just a Billing One</a>
+    </div>
+
+    <!-- 09 DATA & COST -->
+    <div class="lib-group-label"><span class="sq" style="background:var(--critical)"></span>09 · Data Connectors, Ingestion &amp; Cost Optimisation</div>
+    <div class="article-grid">
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-data-connectors-what-actually-matters/" target="_blank" rel="noopener">Data Connectors: The Order That Actually Matters</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-cost-optimization-guide/" target="_blank" rel="noopener">Sentinel on a Budget: How to Tame Your Log Costs</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-log-ingestion-spikes-find-and-fix/" target="_blank" rel="noopener">Sentinel Cost Spike: How To Actually Find The Culprit Table</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/sentinel-soc-optimization-guide/" target="_blank" rel="noopener">Sentinel's Built-in Consultant: An In-Depth Guide to SOC Optimization</a>
+      <a class="article-card" href="https://www.itprofessor.cloud/building-sentinel-on-broke-company-budget/" target="_blank" rel="noopener">Sentinel on a Shoestring: What You Can Actually Do with Business Premium</a>
+    </div>
+
   </section>
 
   <footer>
