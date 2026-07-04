@@ -32,6 +32,7 @@
     color:var(--text);
     font-family:var(--sans);
     line-height:1.5;
+    text-align:left;
     background-image:
       radial-gradient(circle at 15% 0%, rgba(79,163,227,0.05), transparent 40%),
       radial-gradient(circle at 85% 20%, rgba(232,69,60,0.04), transparent 40%);
@@ -90,6 +91,7 @@
     padding:12px 32px;
     border-bottom:1px solid var(--border-soft);
     background:var(--bg-panel);
+    justify-content:flex-start;
   }
   .legend a{
     font-family:var(--mono);
@@ -111,7 +113,7 @@
   .hero{
     padding:64px 32px 48px;
     max-width:1120px;
-    margin:0;
+    margin:0 auto 0 0; /* pinned to the left edge */
     border-bottom:1px solid var(--border-soft);
   }
   .eyebrow{
@@ -149,6 +151,7 @@
     border-radius:6px;
     overflow:hidden;
     width:fit-content;
+    margin-right:auto; /* stays left */
   }
   .hero-stats div{
     padding:14px 22px;
@@ -162,7 +165,7 @@
   /* ---------- Section shell ---------- */
   section.block{
     max-width:1120px;
-    margin:0;
+    margin:0 auto 0 0; /* pinned to the left edge */
     padding:56px 32px;
     border-bottom:1px solid var(--border-soft);
   }
@@ -242,7 +245,7 @@
   .track-label .sq{width:9px;height:9px;border-radius:2px;}
 
   /* ---------- Ninja chips ---------- */
-  .chip-grid{display:flex; flex-wrap:wrap; gap:10px;}
+  .chip-grid{display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-start;}
   .chip{
     font-family:var(--mono);
     font-size:12px;
@@ -310,7 +313,8 @@
 
   /* ---------- Footer ---------- */
   footer{
-    max-width:1120px; margin:0; padding:40px 32px 60px;
+    max-width:1120px; margin:0 auto 0 0; /* pinned to the left edge */
+    padding:40px 32px 60px;
     display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
     font-family:var(--mono); font-size:11px; color:var(--text-dim); letter-spacing:0.04em;
   }
