@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Blackford CSOC Training Hub — threat hunting, incident response, and Microsoft Defender XDR / Sentinel training for L1–L3 analysts.">
 <title>CSOC Training Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -35,6 +36,7 @@
       radial-gradient(circle at 85% 20%, rgba(232,69,60,0.04), transparent 40%);
   }
   a{color:inherit; text-decoration:none;}
+  a:focus-visible{outline:2px solid var(--info); outline-offset:2px; border-radius:3px;}
 
   /* ---------- Ticker ---------- */
   .ticker-bar{
@@ -165,6 +167,7 @@
   }
   .hero-stats{
     display:flex;
+    flex-wrap:wrap;
     gap:0;
     border:1px solid var(--border);
     border-radius:6px;
@@ -224,6 +227,7 @@
   .cert-card:hover{border-color:var(--info); transform:translateY(-2px);}
   .cert-id{font-family:var(--mono); font-size:12px; color:var(--info); letter-spacing:0.05em; margin-bottom:10px;}
   .cert-name{font-weight:600; font-size:15px; margin-bottom:8px;}
+  .cert-name a:hover{color:var(--info);}
   .cert-desc{font-size:13px; color:var(--text-mute);}
 
   /* ---------- Track (sequence with real order) ---------- */
@@ -299,58 +303,12 @@
     border-radius:8px;
     padding:18px;
     background:var(--bg-panel);
+    transition:border-color .15s;
   }
+  .exam-card:hover{border-color:var(--med);}
   .exam-src{font-family:var(--mono); font-size:10px; color:var(--med); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:8px;}
   .exam-title{font-size:14px; font-weight:600;}
-
-  /* ---------- Trackers (tables) ---------- */
-  .table-wrap{overflow-x:auto; border:1px solid var(--border); border-radius:8px;}
-  table{width:100%; border-collapse:collapse; font-size:13px; min-width:640px;}
-  thead th{
-    text-align:left;
-    font-family:var(--mono);
-    font-size:10px;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--text-dim);
-    padding:12px 16px;
-    background:var(--bg-panel-2);
-    border-bottom:1px solid var(--border);
-    white-space:nowrap;
-  }
-  tbody td{
-    padding:11px 16px;
-    border-bottom:1px solid var(--border-soft);
-    color:var(--text-mute);
-    white-space:nowrap;
-  }
-  tbody tr:last-child td{border-bottom:none;}
-  tbody tr:hover td{background:var(--bg-panel-2); color:var(--text);}
-  td.name{color:var(--text); font-weight:600;}
-  .status{
-    display:inline-flex; align-items:center; gap:6px;
-    font-family:var(--mono); font-size:11px; letter-spacing:0.03em;
-    padding:4px 9px; border-radius:12px;
-  }
-  .status .d{width:6px; height:6px; border-radius:50%;}
-  .status.not-started{color:var(--text-dim); background:rgba(87,100,111,0.12);}
-  .status.not-started .d{background:var(--text-dim);}
-  .status.content{color:var(--med); background:rgba(242,201,76,0.1);}
-  .status.content .d{background:var(--med);}
-  .status.exam{color:var(--good); background:rgba(61,190,122,0.1);}
-  .status.exam .d{background:var(--good);}
-  .status.progress{color:var(--info); background:rgba(79,163,227,0.1);}
-  .status.progress .d{background:var(--info);}
-
-  .tracker-tabs{display:flex; gap:8px; margin-bottom:20px;}
-  .tab-btn{
-    font-family:var(--mono); font-size:11px; letter-spacing:0.05em;
-    padding:9px 16px; border-radius:6px; border:1px solid var(--border);
-    color:var(--text-mute); cursor:pointer; background:var(--bg-panel);
-  }
-  .tab-btn.active{color:var(--text); border-color:var(--info); background:var(--bg-panel-2);}
-  .tracker-panel{display:none;}
-  .tracker-panel.active{display:block;}
+  .exam-title a:hover{color:var(--info);}
 
   /* ---------- Deep dive articles ---------- */
   .article-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px;}
@@ -363,6 +321,7 @@
     font-weight:500;
     line-height:1.4;
     transition:border-color .15s, transform .15s;
+    display:block;
   }
   .article-card:hover{border-color:var(--critical); transform:translateY(-2px); color:var(--text);}
 
@@ -374,11 +333,19 @@
   }
 
   ::selection{background:rgba(79,163,227,0.3);}
+
+  /* ---------- Reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .ticker-track{animation:none;}
+    .pulse{animation:none;}
+    .cert-card:hover, .article-card:hover{transform:none;}
+  }
 </style>
 </head>
 <body>
 
-  <div class="ticker-bar">
+  <div class="ticker-bar" aria-hidden="true">
     <div class="ticker-track" id="tickerTrack"></div>
   </div>
 
@@ -387,7 +354,7 @@
     <div class="clock" id="clock">— GST —</div>
   </div>
 
-  <nav class="legend">
+  <nav class="legend" aria-label="Section navigation">
     <a href="#microsoft"><span class="sev" style="background:var(--info)"></span>Microsoft Training</a>
     <a href="#hunting"><span class="sev" style="background:var(--med)"></span>Threat Hunting</a>
     <a href="#ir"><span class="sev" style="background:var(--critical)"></span>Incident Response</a>
@@ -398,14 +365,14 @@
   </nav>
 
   <div class="hero">
-    <div class="eyebrow"> Blackford's Cyber Security Operations Center</div>
+    <div class="eyebrow">Blackford's Cyber Security Operations Center</div>
     <h1>Threat Hunting &amp; Incident Response Training Hub</h1>
     <p>A centralised platform supporting proactive threat detection, investigation, and coordinated response. It consolidates threat intelligence, hunting methodologies, incident workflows, and operational playbooks into a single accessible location for L1, L2, and L3 analysts across Microsoft Defender XDR and Microsoft Sentinel.</p>
     <div class="hero-stats">
       <div><div class="n">3</div><div class="l">Analyst levels</div></div>
       <div><div class="n">3</div><div class="l">MS certifications</div></div>
       <div><div class="n">14</div><div class="l">Training modules</div></div>
-      <div><div class="n">21</div><div class="l">Deep dive articles</div></div>
+      <div><div class="n">19</div><div class="l">Deep dive articles</div></div>
     </div>
   </div>
 
@@ -419,21 +386,22 @@
       <div class="cert-card">
         <div class="cert-id">SC-900</div>
         <div class="cert-name">
-    <a href="https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/?practice-assessment-type=certification" target="_blank">
-        Microsoft Security Fundamentals
-    </a>
-</div>
+          <a href="https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/?practice-assessment-type=certification" target="_blank" rel="noopener">Microsoft Security Fundamentals</a>
+        </div>
         <div class="cert-desc">Baseline concepts across security, compliance, and identity — the entry point for every analyst tier.</div>
       </div>
       <div class="cert-card">
         <div class="cert-id">SC-200</div>
-        <a href="https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/" target="_blank">Microsoft Security Operations Analyst</a>
+        <div class="cert-name">
+          <a href="https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/" target="_blank" rel="noopener">Microsoft Security Operations Analyst</a>
+        </div>
         <div class="cert-desc">Core certification for CSOC analysts: threat mitigation, investigation, and response with Defender and Sentinel.</div>
       </div>
       <div class="cert-card">
         <div class="cert-id">AZ-500</div>
-     <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/?practice-assessment-type=certification/" target="_blank">
-       Azure Security Engineer
+        <div class="cert-name">
+          <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/?practice-assessment-type=certification" target="_blank" rel="noopener">Azure Security Engineer</a>
+        </div>
         <div class="cert-desc">Implementing and managing security controls across Azure infrastructure and workloads.</div>
       </div>
     </div>
@@ -500,28 +468,21 @@
     </div>
     <div class="block-desc">These are internal resources that will assist in your initial onboarding.</div>
     <div class="res-list">
-  <a class="article-card" href="https://www.itprofessor.cloud/defender-xdr-incident-investigation-end-to-end/" target="_blank">
-    Defender XDR Incident Investigation: End-to-End Guide with Sentinel &amp; The KQL Playbook (Play #1): A Beginner's Guide to Talking to Your Data
-</a>
- <div class="res-row">
-    <span class="res-idx">04</span>
-    <span class="res-title">
-        <a href="https://www.itprofessor.cloud/defender-xdr-incident-investigation-end-to-end/" target="_blank">
-          Defender XDR Incident Investigation: A to Z
-        </a>
-    </span>
-    <span class="res-arrow">→</span>
-</div>
-</a>
-
-    <span class="res-idx">06</span>
-    <span class="res-title">
-        <a href="https://github.com/rod-trent/MustLearnKQL/blob/main/Book_Version/MustLearnKQL_Book.pdf" target="_blank">
-            MustLearnKQL — Book
-        </a>
-    </span>
-    <span class="res-arrow">→</span>
-</div>
+      <a class="res-row" href="https://www.itprofessor.cloud/defender-xdr-incident-investigation-end-to-end/" target="_blank" rel="noopener">
+        <span class="res-idx">01</span>
+        <span class="res-title">Defender XDR Incident Investigation: End-to-End Guide with Sentinel &amp; KQL</span>
+        <span class="res-arrow">→</span>
+      </a>
+      <a class="res-row" href="#">
+        <span class="res-idx">02</span>
+        <span class="res-title">The KQL Playbook (Play #1): A Beginner's Guide to Talking to Your Data</span>
+        <span class="res-arrow">→</span>
+      </a>
+      <a class="res-row" href="https://github.com/rod-trent/MustLearnKQL/blob/main/Book_Version/MustLearnKQL_Book.pdf" target="_blank" rel="noopener">
+        <span class="res-idx">03</span>
+        <span class="res-title">MustLearnKQL — Book</span>
+        <span class="res-arrow">→</span>
+      </a>
     </div>
   </section>
 
@@ -535,24 +496,27 @@
     <div class="exam-grid">
       <div class="exam-card">
         <div class="exam-src">Microsoft Learn</div>
-<div class="exam-title">
-    <a href="https://learn.microsoft.com/en-us/training/courses/sc-900t00" target="_blank">
-        Microsoft Learn Practice Assessment
-    </a>
-</div>
+        <div class="exam-title">
+          <a href="https://learn.microsoft.com/en-us/training/courses/sc-200t00" target="_blank" rel="noopener">SC-200 Official Course (SC-200T00)</a>
+        </div>
       </div>
       <div class="exam-card">
-              <div class="exam-src">Microsoft Learn</div
+        <div class="exam-src">Microsoft Learn</div>
         <div class="exam-title">
-    <a href="https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/?practice-assessment-type=certification" target="_blank">
-        Microsoft Security Operations Analyst Practice Assessment
-    </a>
-</div>
-        <div class="exam-title">SC-200 Practice Exam 2026: Free Questions + AI Tutor</div>
+          <a href="https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/?practice-assessment-type=certification" target="_blank" rel="noopener">SC-200 Official Practice Assessment</a>
+        </div>
+      </div>
+      <div class="exam-card">
+        <div class="exam-src">Practice Exam</div>
+        <div class="exam-title">
+          <a href="#">SC-200 Practice Exam 2026: Free Questions + AI Tutor</a>
+        </div>
       </div>
       <div class="exam-card">
         <div class="exam-src">Cloud Study Community</div>
-        <div class="exam-title">SC-200: 200+ Predicted Practice Questions with Detailed Explanations (eBook)</div>
+        <div class="exam-title">
+          <a href="#">SC-200: 200+ Predicted Practice Questions with Detailed Explanations (eBook)</a>
+        </div>
       </div>
     </div>
   </section>
@@ -589,59 +553,37 @@
 
   <footer>
     <span>CSOC TRAINING HUB — INTERNAL USE</span>
-    <span>DEFENDER XDR // KQL </span>
+    <span>DEFENDER XDR // KQL</span>
   </footer>
 
 <script>
-  // Ticker content
+  // Ticker content: [text, dot colour]
   const tickerItems = [
-    [' 24/7/365 MONITORING: DEFENDER XDR' 'KQL', 'var(--good)'],
-    [' ANALYST TRAINING: var(--info)'],
-    ['SC-200, AZ-500, SC-900 PRACTICE EXAM 2026', 'var(--med)'],
+    ['24/7/365 MONITORING: DEFENDER XDR + SENTINEL', 'var(--good)'],
+    ['ANALYST TRAINING: L1 / L2 / L3 TRACKS LIVE', 'var(--info)'],
+    ['CERTIFICATION PATH: SC-900 → SC-200 → AZ-500', 'var(--med)'],
+    ['SC-200 PRACTICE EXAMS 2026 NOW AVAILABLE', 'var(--high)'],
   ];
   const track = document.getElementById('tickerTrack');
-  const build = () => tickerItems.map(([t,c]) =>
+  const build = () => tickerItems.map(([t, c]) =>
     `<span><span class="dot" style="background:${c}"></span>${t}</span>`).join('');
-  track.innerHTML = build() + build();
+  track.innerHTML = build() + build(); // duplicated so the loop is seamless
 
-  // Clock
-// GST (Gulf Standard Time - UAE)
-function updateClock() {
-    const now = new Date();
-
+  // Clock — GST / UAE time (UTC+4)
+  const clockEl = document.getElementById('clock');
+  function updateClock() {
     const gstTime = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Asia/Dubai',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-    }).format(now);
-
-    document.getElementById('clock').textContent = `${gstTime} GST`;
-}
-
-// GST / UAE Time (UTC+4)
-function updateClock() {
-    const now = new Date();
-
-    const options = {
-        timeZone: 'Asia/Dubai',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-    };
-
-    const gstTime = now.toLocaleTimeString('en-GB', options);
-
-    const clock = document.getElementById('clock');
-    if (clock) {
-        clock.textContent = gstTime + ' GST';
-    }
-}
-
-updateClock();
-setInterval(updateClock, 1000);>
+      timeZone: 'Asia/Dubai',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    }).format(new Date());
+    clockEl.textContent = `${gstTime} GST`;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
 
 </body>
 </html>
